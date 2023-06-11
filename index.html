@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MemoApp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <!-- 文字アニメーション -->
+    <div id="container">
+        <button class="mobile-menu-icon" onclick="toggleNote()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="blink-text" id="clickMe">
+            ←Click Me!
+        </div>
+
+        <!-- ここでtextareaとSaveボタンを追加 -->
+        <div id="note" class="note-hidden">
+            <textarea id="memoArea" placeholder="your memo here." cols="40"></textarea>
+            <button id="saveButton" onclick="saveButtonClicked()">SaveMemo to LocalStorage</button>
+            <button id="clearButton" onclick="clearLocalStorage()">Delete All Memos</button>
+        </div>
+        <!-- ここで保存されたメモを表示する領域を追加 -->
+        <div id="savedMemos" class="note-hidden"></div>
+
+        <div class="animate-title inview">
+            <span class="char">M</span>
+            <span class="char">E</span>
+            <span class="char">M</span>
+            <span class="char">O</span>
+            <span class="char"> </span>
+            <span class="char">A</span>
+            <span class="char">P</span>
+            <span class="char">P</span>
+        </div>
+    </div>
+</body>
+</html>

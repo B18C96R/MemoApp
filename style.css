@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mobile-menu-icon {
+  background-color: unset;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.mobile-menu-icon > span {
+  background-color: white;
+  width: 35px;
+  height: 2px;
+  display: block;
+  margin-bottom: 9px;
+  transition: transform 0.7s;
+}
+.mobile-menu-icon > span:last-child {
+  margin-bottom: 0;
+}
+
+.blink-text {
+  position: absolute;
+  top: 1%;
+  left: 70px;
+  font-size: 4;
+  color: white;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.menu-open {
+  background-color: white;
+}
+.menu-open .mobile-menu-icon > span {
+  background-color: white;
+}
+.menu-open .mobile-menu-icon > span:nth-child(1) {
+  transition-delay: 70ms;
+  transform: translateY(11px) rotate(135deg);
+}
+.menu-open .mobile-menu-icon > span:nth-child(2) {
+  transition-delay: 0s;
+  transform: translateX(-18px) scaleX(0);
+}
+.menu-open .mobile-menu-icon > span:nth-child(3) {
+  transition-delay: 140ms;
+  transform: translateY(-11px) rotate(-135deg);
+}
+
+#container {
+  position: relative;
+  height: 100vh;
+  background-color: teal;
+  outline: none !important;
+}
+
+.animate-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  font-size: 1.5em;
+}
+.animate-title.inview {
+  opacity: 1;
+}
+.animate-title.inview .char {
+  display: inline-block;
+  animation-name: kf-animate-chars;
+  animation-duration: 2.5s;
+  animation-timing-function: cubic-bezier(0.39, 1.57, 0.58, 1);
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.animate-title.inview .char:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.animate-title.inview .char:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.animate-title.inview .char:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.animate-title.inview .char:nth-child(4) {
+  animation-delay: 0.16s;
+}
+.animate-title.inview .char:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.animate-title.inview .char:nth-child(6) {
+  animation-delay: 0.24s;
+}
+.animate-title.inview .char:nth-child(7) {
+  animation-delay: 0.28s;
+}
+.animate-title.inview .char:nth-child(8) {
+  animation-delay: 0.32s;
+}
+.animate-title.inview .char:nth-child(9) {
+  animation-delay: 0.36s;
+}
+
+@keyframes kf-animate-chars {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#note {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 70%;
+  padding: 1em;
+  font-size: 1em;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s, visibility 0.3s;
+}
+#note.note-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#note.note-visible {
+  opacity: 1;
+  visibility: visible;
+}
+#note #note {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 70%;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  transition: visibility 0.3s;
+}
+#note #note.note-hidden {
+  visibility: hidden;
+}
+#note #note.note-visible {
+  visibility: visible;
+}
+#note #note #memoArea {
+  position: absolute;
+  resize: none;
+  width: 10%;
+  height: 80%;
+  border: none;
+  resize: none;
+  padding: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+#note #savedMemos {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  width: 80%;
+  height: 10%;
+  overflow: auto;
+  padding: 10px;
+}
+#note #savedMemos p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+  color: #000;
+}
+#note #savedMemos.note-hidden {
+  visibility: hidden;
+}
+#note #savedMemos.note-visible {
+  visibility: visible;
+}
+#note .memo {
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#saveButton {
+  position: absolute;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 40px;
+  margin: 50px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#saveButton:hover {
+  background-color: black;
+  color: white;
+}
+
+#clearButton {
+  position: absolute;
+  background-color: white;
+  color: black;
+  border: 1px solid red;
+  padding: 10px 40px;
+  margin: 100px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#clearButton:hover {
+  background-color: red;
+  color: white;
+}
+
+textarea {
+  resize: none;
+  width: 280px;
+  height: 200px;
+}/*# sourceMappingURL=style.css.map */
